@@ -230,6 +230,10 @@ flash:
   - software/flash/**
   - tests/software/flash/**
 
+flye/assemble:
+  - software/flye/assemble/**
+  - tests/software/flye/assemble/**
+
 gatk4/applybqsr:
   - software/gatk4/applybqsr/**
   - tests/software/gatk4/applybqsr/**

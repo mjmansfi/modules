@@ -1,0 +1,10 @@
+## TODO nf-core: Please run the following command to build this file:
+#                nf-core modules create-test-yml flye/assemble
+- name: flye assemble
+  command: nextflow run ./tests/software/flye/assemble -entry test_flye_assemble -c tests/config/nextflow.config
+  tags:
+    - flye
+    - flye/assemble
+  files:
+    - path: output/flye/test.bam
+      md5sum: e667c7caad0bc4b7ac383fd023c654fc
