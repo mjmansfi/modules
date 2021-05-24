@@ -22,6 +22,10 @@ bandage/image:
   - software/bandage/image/**
   - tests/software/bandage/image/**
 
+bbmap/bbduk:
+  - software/bbmap/bbduk/**
+  - tests/software/bbmap/bbduk/**
+
 bcftools/consensus:
   - software/bcftools/consensus/**
   - tests/software/bcftools/consensus/**
@@ -290,6 +294,10 @@ gatk4/variantfiltration:
   - software/gatk4/variantfiltration/**
   - tests/software/gatk4/variantfiltration/**
 
+gatk4/intervallisttools:
+  - software/gatk4/intervallisttools/**
+  - tests/software/gatk4/intervallisttools/**
+
 gffread:
   - software/gffread/**
   - tests/software/gffread/**
@@ -369,6 +377,14 @@ kraken2/run:
 last/lastdb:
   - software/last/lastdb/**
   - tests/software/last/lastdb/**
+
+last/mafswap:
+  - software/last/mafswap/**
+  - tests/software/last/mafswap/**
+
+last/train:
+  - software/last/train/**
+  - tests/software/last/train/**
 
 mash/sketch:
   - software/mash/sketch/**
@@ -646,6 +662,14 @@ ucsc/bedclip:
 ucsc/bedgraphtobigwig:
   - software/ucsc/bedgraphtobigwig/**
   - tests/software/ucsc/bedgraphtobigwig/**
+
+ucsc/bigwigaverageoverbed:
+  - software/ucsc/bigwigaverageoverbed/**
+  - tests/software/ucsc/bigwigaverageoverbed/**
+
+ucsc/wigtobigwig:
+  - software/ucsc/wigtobigwig/**
+  - tests/software/ucsc/wigtobigwig/**
 
 unicycler:
   - software/unicycler/**
