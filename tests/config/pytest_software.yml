@@ -382,6 +382,10 @@ kraken2/run:
   - software/untar/**
   - tests/software/kraken2/run/**
 
+last/dotplot:
+  - software/last/dotplot/**
+  - tests/software/last/dotplot/**
+
 last/lastal:
   - software/last/lastal/**
   - tests/software/last/lastal/**
@@ -393,6 +397,10 @@ last/lastdb:
 last/mafswap:
   - software/last/mafswap/**
   - tests/software/last/mafswap/**
+
+last/postmask:
+  - software/last/postmask/**
+  - tests/software/last/postmask/**
 
 last/split:
   - software/last/split/**
@@ -459,13 +467,13 @@ optitype:
   - software/optitype/**
   - tests/software/optitype/**
 
-pairtools/flip:
-  - software/pairtools/flip/**
-  - tests/software/pairtools/flip/**
-
 pairtools/dedup:
   - software/pairtools/dedup/**
   - tests/software/pairtools/dedup/**
+
+pairtools/flip:
+  - software/pairtools/flip/**
+  - tests/software/pairtools/flip/**
 
 pairtools/parse:
   - software/pairtools/parse/**

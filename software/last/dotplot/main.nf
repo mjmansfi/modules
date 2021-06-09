@@ -4,32 +4,38 @@ include { initOptions; saveFiles; getSoftwareName } from './functions'
 params.options = [:]
 options        = initOptions(params.options)
 
-process SAMTOOLS_SORT {
+process LAST_DOTPLOT {
     tag "$meta.id"
-    label 'process_medium'
+    label 'process_low'
     publishDir "${params.outdir}",
         mode: params.publish_dir_mode,
         saveAs: { filename -> saveFiles(filename:filename, options:params.options, publish_dir:getSoftwareName(task.process), meta:meta, publish_by_meta:['id']) }
 
-    conda (params.enable_conda ? "bioconda::samtools=1.12" : null)
+    conda (params.enable_conda ? "bioconda::last=1219" : null)
     if (workflow.containerEngine == 'singularity' && !params.singularity_pull_docker_container) {
-        container "https://depot.galaxyproject.org/singularity/samtools:1.12--hd5e65b6_0"
+        container "https://depot.galaxyproject.org/singularity/last:1219--h2e03b76_0"
     } else {
-        container "quay.io/biocontainers/samtools:1.12--hd5e65b6_0"
+        container "quay.io/biocontainers/last:1219--h2e03b76_0"
     }
 
     input:
-    tuple val(meta), path(bam)
+    tuple val(meta), path(maf)
 
     output:
-    tuple val(meta), path("*.bam"), emit: bam
-    path  "*.version.txt"         , emit: version
+    tuple val(meta), path("*.{png,gif}"), emit: plot
+    path "*.version.txt"                , emit: version
 
     script:
     def software = getSoftwareName(task.process)
+    def format   = options.args2  ? options.args2                 : "png"
     def prefix   = options.suffix ? "${meta.id}${options.suffix}" : "${meta.id}"
     """
-    samtools sort $options.args -@ $task.cpus -o ${prefix}.bam -T $prefix $bam
-    echo \$(samtools --version 2>&1) | sed 's/^.*samtools //; s/Using.*\$//' > ${software}.version.txt
+    last-dotplot \\
+        $options.args \\
+        $maf \\
+        $prefix.$format
+
+    # last-dotplot has no --version option so let's use lastal from the same suite
+    lastal --version | sed 's/lastal //' > ${software}.version.txt
     """
 }
